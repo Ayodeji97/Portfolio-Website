@@ -1,9 +1,9 @@
 function Project() {
   return (
-    <div>
+    <section>
       <h1>Project</h1>
       <p>Project page</p>
-    </div>
+    </section>
   );
 }
 
