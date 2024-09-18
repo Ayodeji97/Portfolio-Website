@@ -1,7 +1,7 @@
 function Navbar() {
   return (
     <nav>
-      <div className="container">
+      <div className="nav-container">
         <ul>
           <li>
             <a href="#home">Home</a>
