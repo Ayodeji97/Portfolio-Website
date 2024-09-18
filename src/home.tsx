@@ -1,8 +1,10 @@
 import BackgroundGradient from "./components/backgorund-gradient";
+import Navbar from "./navbar";
 
 function Hero() {
   return (
     <div className="hero">
+      <Navbar />
       <BackgroundGradient className="hero-background-gradient" />
       <div className="container">
         <div className="hero-content">
