@@ -6,7 +6,14 @@ body {
   overflow-x: hidden;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 :root {
+  --color-accent-100: #f5e9d3;
   --color-accent-500: #c2a07e;
   --color-accent-600: #a67b5b;
   --color-accent-700: #8b5e3c;
@@ -21,14 +28,35 @@ code {
     monospace;
 }
 
+/* General */
 section {
-  margin: 60px 0;
+  background-color: var(--color-black-500);
+  color: var(--color-white-500);
+  text-align: center;
+  padding: 60px 0;
+  height: 100vh;
+  scroll-snap-align: start;
+  /* min-height: 100vh;
+  scroll-snap-align: start; */
 }
+
+.container {
+  display: flex;
+
+  flex-grow: 1;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Navbar */
 nav {
+  position: absolute;
+  width: 100%;
   background-color: var(--color-black-500);
   color: var(--color-white-500);
 }
-nav .container {
+nav .nav-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,19 +84,20 @@ nav ul li a:hover {
   color: var(--color-accent-500);
 }
 
+/* Hero */
+
 .hero {
+  display: flex;
   background-color: var(--color-black-500);
   color: var(--color-white-500);
   text-align: center;
-  padding: 200px 0;
+  height: 100vh;
+  scroll-snap-align: start;
 }
 
 .hero .container {
-  display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1300px;
-  margin: 0 auto;
 }
 .hero .container .hero-content {
   display: flex;
@@ -140,6 +169,7 @@ nav ul li a:hover {
   padding: 1rem 2rem;
   border-radius: 1rem;
   transition: background-color;
+  z-index: 2;
 }
 
 .hero .btn:hover {
@@ -151,5 +181,145 @@ nav ul li a:hover {
   position: absolute;
   top: 50%;
   left: 50%;
-  transition: -50% -50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+/* About */
+.about-section {
+}
+
+.about-section .container {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: start;
+  align-items: baseline;
+  gap: 20px;
+}
+
+.header h1 {
+  font-size: 6rem;
+  margin-bottom: 20px;
+  text-align: start;
+  letter-spacing: -2px;
+}
+
+.about-content {
+  display: flex;
+  gap: 15px;
+  margin-top: 40px;
+}
+
+.about-bar {
+  content: "";
+  background-color: var(--color-accent-500);
+  margin-left: 20px;
+  width: 10px;
+  flex-grow: 1;
+  display: block;
+}
+
+.about-text {
+  font-size: 1.5rem;
+  text-align: start;
+}
+
+.about-skills {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  margin-top: 60px;
+}
+
+.about-skills h3 {
+  text-align: start;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.about-skills-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.about-skill {
+  list-style: none;
+  border-radius: 24px;
+  padding: 1rem;
+  border: 2px solid var(--color-accent-100);
+}
+
+.technology-icon {
+  width: 4rem;
+  height: 4rem;
+}
+
+.full-stop {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  background-color: var(--color-accent-500);
+  width: 20px;
+  height: 20px;
+}
+
+/* Experience */
+
+.experience-section .container {
+  display: flex;
+  flex-direction: column;
+}
+
+.experience-box {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  margin-top: 40px;
+}
+
+.experience {
+  display: flex;
+  gap: 3rem;
+}
+
+.experience-number {
+  font-size: 5rem;
+  font-weight: 600;
+}
+
+.experience-info {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 0.5rem;
+}
+
+.experience-info h6 {
+  color: var(--color-accent-500);
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+
+.experience-info h3 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.experience-info p {
+  text-align: start;
+  margin-top: 2rem;
+  font-size: 1rem;
+}
+
+.app-container {
+  /* scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh; */
 }
