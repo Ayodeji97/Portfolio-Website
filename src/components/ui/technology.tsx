@@ -1,4 +1,4 @@
-import { TechnologyIcon } from "../app.interface";
+import { TechnologyIcon } from "../../app.interface";
 
 function Technology({ src, alt }: TechnologyIcon) {
   return (
