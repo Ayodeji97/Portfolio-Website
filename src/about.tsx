@@ -1,6 +1,6 @@
 import { technologies } from "./app.constants";
-import FullStop from "./components/full-stop";
-import Technology from "./components/technology";
+import FullStop from "./components/ui/full-stop";
+import Technology from "./components/ui/technology";
 
 function About() {
   return (
