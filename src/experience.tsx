@@ -1,6 +1,6 @@
 import { experiences } from "./app.constants";
-import ExperienceComponent from "./components/experience";
-import FullStop from "./components/full-stop";
+import ExperienceComponent from "./components/ui/experience";
+import FullStop from "./components/ui/full-stop";
 
 function Experience() {
   return (

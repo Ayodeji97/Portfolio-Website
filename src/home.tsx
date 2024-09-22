@@ -1,4 +1,4 @@
-import BackgroundGradient from "./components/backgorund-gradient";
+import BackgroundGradient from "./components/ui/backgorund-gradient";
 import Navbar from "./navbar";
 
 function Hero() {

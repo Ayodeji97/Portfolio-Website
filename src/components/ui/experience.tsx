@@ -1,4 +1,4 @@
-import { ExperienceType } from "../app.interface";
+import { ExperienceType } from "../../app.interface";
 
 interface Experience extends ExperienceType {
   index: number;
