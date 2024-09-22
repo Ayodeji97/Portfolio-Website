@@ -1,4 +1,10 @@
-import { ExperienceType, ProjectType, TechnologyIcon } from "./app.interface";
+import {
+  ExperienceType,
+  ProjectType,
+  SocialLinkType,
+  TechnologyIcon,
+} from "./app.interface";
+import LinkedIn from "./components/icons/linkedin";
 
 export const technologies: TechnologyIcon[] = [
   {
@@ -78,5 +84,20 @@ export const projects: ProjectType[] = [
     githubLink: "https://github.com",
     liveLink: "https://github.com",
     img: "https://via.placeholder.com/300",
+  },
+];
+
+export const socialLinks: SocialLinkType[] = [
+  {
+    link: "linkedin.com",
+    icon: LinkedIn(),
+  },
+  {
+    link: "",
+    icon: LinkedIn(),
+  },
+  {
+    link: "",
+    icon: LinkedIn(),
   },
 ];
