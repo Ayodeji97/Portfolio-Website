@@ -250,6 +250,7 @@ nav ul li a:hover {
 
 /* About */
 .about-section {
+  min-height: fit-content;
 }
 
 .about-section .container {
@@ -352,6 +353,15 @@ nav ul li a:hover {
   gap: 3rem;
 }
 
+.contact-background-gradient {
+  position: absolute;
+  top: 50%;
+  right: -25%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
 .experience-number {
   font-size: 5rem;
   font-weight: 600;
@@ -379,6 +389,14 @@ nav ul li a:hover {
   text-align: start;
   margin-top: 2rem;
   font-size: 1rem;
+}
+.experience-background-gradient {
+  position: absolute;
+  top: 50%;
+  right: -25%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  pointer-events: none;
 }
 
 /* PROJECT */
@@ -636,18 +654,18 @@ nav ul li a:hover {
 .social--link {
   text-decoration: none;
   color: white;
-  transition: all 0.3s;
+  transition: all 0.3s ease-in-out;
 }
 
 .social--link:hover {
-  transform: scale(1.05);
+  /* transform: scale(1.05); */
   color: var(--color-accent-500);
 }
 
 .copyright {
   font-weight: 600;
   font-size: 1rem;
-  margin-top: 15rem;
+  margin-top: 5rem;
 }
 
 .app-container {
@@ -657,5 +675,171 @@ nav ul li a:hover {
   position: relative;
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1000px) {
+  .hero .container {
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+  }
+  .hero-subtitle {
+    font-size: 5rem;
+    line-height: 60px;
+  }
+  .header h1 {
+    font-size: 5rem;
+  }
+
+  .contact-box {
+    flex-direction: column;
+    align-items: center;
+  }
+  .contact-message {
+    width: 75%;
+  }
+  .contact-details {
+    width: 75%;
+  }
+}
+
+@media (max-width: 800px) {
+  .hero-subtitle {
+    font-size: 4rem;
+    line-height: 50px;
+  }
+  .header h1 {
+    font-size: 4rem;
+  }
+
+  /* .hero img {
+    width: 300px;
+    height: 300px;
+  } */
+  .hero .container {
+    padding: 0 20px;
+  }
+  .hero .btn {
+    font-size: 1.2rem;
+  }
+  .technology-icon {
+    width: 3rem;
+    height: 3rem;
+  }
+  .full-stop {
+    width: 15px;
+    height: 15px;
+  }
+  .experience-number {
+    font-size: 4rem;
+  }
+  .about-section .container {
+    padding: 0 20px;
+  }
+  .experience-section .container {
+    padding: 0 20px;
+  }
+  .project-box {
+    display: flex;
+    flex-direction: column;
+  }
+  .project-section .container {
+    padding: 0 20px;
+  }
+  .contact-section .container {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: 1.2rem;
+  }
+  .hero-subtitle {
+    font-size: 3rem;
+    line-height: 40px;
+  }
+  .header h1 {
+    font-size: 3rem;
+  }
+  .about-text {
+    font-size: 1rem;
+  }
+  .full-stop {
+    width: 10px;
+    height: 10px;
+  }
+
+  .about-skills {
+    margin-top: 30px;
+  }
+
+  .about-skills h3 {
+    font-size: 1.5rem;
+  }
+  /* .hero img {
+    width: 200px;
+    height: 200px;
+  } */
+  .hero-description {
+    font-size: 1.2rem;
+  }
+  .hero .container {
+    padding: 0 10px;
+  }
+  .hero .btn {
+    font-size: 1rem;
+  }
+  .experience-number {
+    font-size: 3rem;
+  }
+  .experience-info p {
+    font-size: 0.8rem;
+  }
+  .technology-icon {
+    width: 2rem;
+    height: 2rem;
+  }
+  .email-icon {
+    font-size: 1rem;
+  }
+
+  .contact-email p {
+    font-size: 1rem;
+  }
+
+  .about-section .container {
+    padding: 0 10px;
+  }
+  .experience-section .container {
+    padding: 0 10px;
+  }
+  .project-section .container {
+    padding: 0 10px;
+  }
+  .contact-section .container {
+    padding: 0 10px;
+  }
+  .contact-message {
+    width: 90%;
+  }
+  .contact-details {
+    width: 90%;
+  }
+  .copyright {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .project h2 {
+    font-size: 1.5rem;
+  }
+  .project-links {
+    gap: 5px;
+  }
+  .project a {
+    font-size: 0.8rem;
+  }
+  .project p {
+    font-size: 0.8rem;
+  }
 }
