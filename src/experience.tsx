@@ -4,7 +4,7 @@ import FullStop from "./components/ui/full-stop";
 
 function Experience() {
   return (
-    <section className="experience-section">
+    <section className="experience-section" id="experience">
       <div className="container">
         <div className="header">
           {" "}

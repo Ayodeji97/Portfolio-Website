@@ -4,7 +4,7 @@ import ProjectItem from "./components/ui/project-item";
 
 function Project() {
   return (
-    <section className="project-section">
+    <section className="project-section" id="project">
       <div className="container">
         <div className="header">
           {" "}

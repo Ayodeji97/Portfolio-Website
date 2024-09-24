@@ -3,6 +3,7 @@ import { TfiEmail } from "react-icons/tfi";
 import { socialLinks } from "./app.constants";
 import FullStop from "./components/ui/full-stop";
 import SocialLink from "./components/ui/social-link";
+import BackgroundGradient from "./components/ui/backgorund-gradient";
 
 function Contact() {
   const handleHover = (value: number, e: MouseEvent) => {
@@ -39,7 +40,8 @@ function Contact() {
   const year = new Date().getFullYear();
 
   return (
-    <section className="contact-section">
+    <section className="contact-section" id="contact">
+      <BackgroundGradient className="contact-background-gradient" />
       <div className="container">
         <div className="header">
           {" "}
