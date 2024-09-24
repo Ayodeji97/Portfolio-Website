@@ -1,10 +1,12 @@
 import { experiences } from "./app.constants";
+import BackgroundGradient from "./components/ui/backgorund-gradient";
 import ExperienceComponent from "./components/ui/experience";
 import FullStop from "./components/ui/full-stop";
 
 function Experience() {
   return (
     <section className="experience-section" id="experience">
+      <BackgroundGradient className="experience-background-gradient" />
       <div className="container">
         <div className="header">
           {" "}
