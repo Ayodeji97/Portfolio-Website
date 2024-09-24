@@ -1,4 +1,5 @@
 import About from "./about";
+import MouseFollower from "./components/ui/mouse-follower";
 import Contact from "./contact";
 import Experience from "./experience";
 import Hero from "./home";
@@ -12,6 +13,7 @@ function App() {
       <Experience />
       <Project />
       <Contact />
+      <MouseFollower />
     </div>
   );
 }

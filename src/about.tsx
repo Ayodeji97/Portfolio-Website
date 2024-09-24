@@ -4,7 +4,7 @@ import Technology from "./components/ui/technology";
 
 function About() {
   return (
-    <section className="about-section">
+    <section className="about-section" id="about">
       <div className="container">
         <div className=" header about-header">
           {" "}

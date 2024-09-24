@@ -9,7 +9,7 @@ function Hero() {
       <div className="container">
         <div className="hero-content">
           <h1 className="hero-title">
-            Hello <span className="hero-wave">👋</span> , I'm John
+            Hello <div className="hero-wave">👋</div> , I'm John
           </h1>
           <h2 className="hero-subtitle">
             {" "}
@@ -23,7 +23,10 @@ function Hero() {
           </a>
         </div>
         <div className="hero-image">
-          <img src="https://via.placeholder.com/400" alt="John Doe" />
+          <div className="hero-image-container">
+            <img src="https://via.placeholder.com/400" alt="John Doe" />
+            <div className="hero-ball"></div>
+          </div>
         </div>
       </div>
     </div>
