@@ -21,22 +21,6 @@ function Project() {
               key={i}
             />
           ))}
-          {/* <div className="project">
-            <h2>Project 2</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              tincidunt, odio et tincidunt fermentum, metus sapien ornare nunc,
-              nec tempus tortor lacus a nulla.
-            </p>
-          </div>
-          <div className="project">
-            <h2>Project 3</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              tincidunt, odio et tincidunt fermentum, metus sapien ornare nunc,
-              nec tempus tortor lacus a nulla.
-            </p>
-          </div> */}
         </div>
       </div>
     </section>
