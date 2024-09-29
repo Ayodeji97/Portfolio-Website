@@ -1,0 +1,7 @@
+const env = import.meta.env;
+
+export const envVars = {
+  REACT_APP_EMAIL_SERVICE_ID: env.VITE_EMAIL_SERVICE_ID,
+  REACT_APP_EMAIL_TEMPLATE_ID: env.VITE_EMAIL_TEMPLATE_ID,
+  REACT_APP_PUBLIC_KEY: env.VITE_PUBLIC_KEY,
+};
