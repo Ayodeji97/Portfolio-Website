@@ -1,29 +1,46 @@
-import { technologies } from "./app.constants";
-import FullStop from "./components/ui/full-stop";
+import { motion } from "framer-motion";
+import {
+  aboutContainerVariant,
+  rightVariants,
+  technologies,
+  TRANSITION,
+} from "./app.constants";
+import SectionHeader from "./components/ui/section-header";
 import Technology from "./components/ui/technology";
 
 function About() {
   return (
     <section className="about-section" id="about">
       <div className="container">
-        <div className=" header about-header">
-          {" "}
-          <h1>About me</h1> <FullStop />
-        </div>
-        <div className="about-content">
+        <SectionHeader text="About me" />
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          transition={TRANSITION}
+          viewport={{ once: true }}
+          variants={rightVariants}
+          className="about-content"
+        >
           <div className="about-bar"></div>
           <p className="about-text">
             I am a software engineer with a passion for web development. I have
             experience in building web applications using modern technologies.
           </p>
-        </div>
+        </motion.div>
         <div className="about-skills">
           <h3>My Technologies .</h3>
-          <ul className="about-skills-list">
+          <motion.ul
+            initial="hidden"
+            whileInView="visible"
+            variants={aboutContainerVariant}
+            transition={TRANSITION}
+            viewport={{ once: true }}
+            className="about-skills-list"
+          >
             {technologies.map((tech) => (
-              <Technology src={tech.src} alt={tech.alt} />
+              <Technology src={tech.src} alt={tech.alt} key={tech.alt} />
             ))}
-          </ul>
+          </motion.ul>
         </div>
         <div className="about-skills">
           <h3>My Hobbies .</h3>
