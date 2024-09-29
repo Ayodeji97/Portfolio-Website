@@ -84,6 +84,17 @@ section {
   pointer-events: none;
 }
 
+/* Split text */
+.letter {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.split-parent {
+  display: inline;
+  overflow: hidden;
+}
+
 /* Navbar */
 nav {
   position: absolute;
@@ -337,6 +348,7 @@ nav ul li a:hover {
 /* Experience */
 
 .experience-section .container {
+  position: relative;
   display: flex;
   flex-direction: column;
 }
@@ -353,13 +365,47 @@ nav ul li a:hover {
   gap: 3rem;
 }
 
-.contact-background-gradient {
+.experience-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* .experience-bar {
+  content: "";
+  display: flex;
+  justify-content: center;
+
+  width: 2px;
+  height: 100%;
+  margin: 0 auto;
+  flex-grow: 1;
+  background-color: var(--color-accent-500);
+  transform-origin: top;
+} */
+.experience-bar {
   position: absolute;
-  top: 50%;
-  right: -25%;
-  transform: translate(-50%, -50%);
-  z-index: 0;
-  pointer-events: none;
+  content: "";
+  display: flex;
+  justify-content: center;
+
+  width: 2px;
+  height: 100%;
+  margin: 0 auto;
+  flex-grow: 1;
+  background-color: var(--color-accent-500);
+  transform-origin: top;
+}
+
+.progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  width: 600px;
+  background: red;
+  transform-origin: 0%;
 }
 
 .experience-number {
@@ -429,11 +475,33 @@ nav ul li a:hover {
   /* background-color: yellow; */
 }
 .project {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding: 8px;
 }
 
+.relative-group-block {
+  position: relative;
+  display: block;
+  padding: 0.5rem; /* p-2 */
+  height: 100%; /* h-full */
+  width: 100%; /* w-full */
+}
+
+.position-hover-background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(30, 41, 59, 0.8); /* Slate 800 with 0.8 opacity */
+  display: block;
+  border-radius: 1.5rem; /* 3xl */
+}
 .project-img-container {
   position: relative;
   width: 100%;
@@ -675,6 +743,43 @@ nav ul li a:hover {
   position: relative;
 }
 
+.typewriter-container {
+  display: inline;
+}
+
+.typewriter-word {
+  display: inline-block;
+}
+
+.typewriter-char {
+  display: inline-block;
+  color: white;
+  opacity: 1;
+  font-size: 1.5rem;
+}
+
+.cursor {
+  display: inline-block;
+  border-radius: 0.125rem;
+  width: 4px;
+  height: 1.5rem;
+  background-color: var(--color-accent-600);
+}
+
+.typewriter-wrapper {
+  display: flex;
+  gap: 0.25rem; /* space-x-1 */
+  justify-content: center;
+}
+
+.typewriter-text {
+  overflow: hidden;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* Media Queries */
+
 @media (max-width: 1000px) {
   .hero .container {
     flex-direction: column;
@@ -744,8 +849,14 @@ nav ul li a:hover {
   .project-section .container {
     padding: 0 20px;
   }
+  .contact-box {
+    margin-top: 50px;
+  }
   .contact-section .container {
     padding: 0 20px;
+  }
+  .typewriter-char {
+    font-size: 1.2rem;
   }
 }
 
@@ -805,7 +916,13 @@ nav ul li a:hover {
   .contact-email p {
     font-size: 1rem;
   }
-
+  .contact-box {
+    margin-top: 30px;
+  }
+  .contact-btn {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
   .about-section .container {
     padding: 0 10px;
   }
@@ -821,11 +938,17 @@ nav ul li a:hover {
   .contact-message {
     width: 90%;
   }
+  .contact-message h3 {
+    font-size: 1.2rem;
+  }
   .contact-details {
     width: 90%;
   }
   .copyright {
     font-size: 0.8rem;
+  }
+  .typewriter-char {
+    font-size: 1rem;
   }
 }
 
@@ -840,6 +963,9 @@ nav ul li a:hover {
     font-size: 0.8rem;
   }
   .project p {
+    font-size: 0.8rem;
+  }
+  .typewriter-char {
     font-size: 0.8rem;
   }
 }
