@@ -1,5 +1,9 @@
 import BackgroundGradient from "./components/ui/backgorund-gradient";
+import ShinyText from "./components/ui/shiny-text";
+import { SplitText } from "./components/ui/split-text";
+import { motion } from "framer-motion";
 import Navbar from "./navbar";
+import { leftVariants, rightVariants, TRANSITION } from "./app.constants";
 
 function Hero() {
   return (
@@ -9,18 +13,47 @@ function Hero() {
       <div className="container">
         <div className="hero-content">
           <h1 className="hero-title">
-            Hello <div className="hero-wave">👋</div> , I'm John
+            {/* Hello <div className="hero-wave">👋</div> ,{" "} */}{" "}
+            <SplitText text="Hello! I'm John" />
           </h1>
-          <h2 className="hero-subtitle">
+          <motion.h2
+            initial="hidden"
+            animate="visible"
+            variants={rightVariants}
+            transition={{
+              ...TRANSITION,
+              delay: 2.3,
+            }}
+            className="hero-subtitle"
+          >
             {" "}
             <span> Android </span> Developer
-          </h2>
-          <p className="hero-description">
+          </motion.h2>
+          <motion.p
+            initial="hidden"
+            animate="visible"
+            variants={rightVariants}
+            transition={{
+              ...TRANSITION,
+              delay: 2.3,
+            }}
+            className="hero-description"
+          >
             I'm an android developer based in New York, NY.
-          </p>
-          <a href="#contact" className="btn">
-            Contact Me
-          </a>
+          </motion.p>
+          <motion.a
+            initial="hidden"
+            animate="visible"
+            variants={leftVariants}
+            transition={{
+              ...TRANSITION,
+              delay: 2.8,
+            }}
+            href="#contact"
+            className="btn"
+          >
+            <ShinyText text="Get in touch" />
+          </motion.a>
         </div>
         <div className="hero-image">
           <div className="hero-image-container">
