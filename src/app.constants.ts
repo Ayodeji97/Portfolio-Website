@@ -101,3 +101,42 @@ export const socialLinks: SocialLinkType[] = [
     icon: LinkedIn(),
   },
 ];
+
+// ANIMATION CONSTANTS
+
+export const leftVariants = {
+  hidden: { x: -100, opacity: 0 },
+  visible: {
+    x: 0,
+    opacity: 1,
+  },
+};
+
+export const variants = {
+  visible: (i: number) => ({
+    opacity: 1,
+    transition: {
+      delay: i * 0.3,
+    },
+  }),
+  hidden: { opacity: 0 },
+};
+
+export const rightVariants = {
+  hidden: { x: 100, opacity: 0 },
+  visible: { x: 0, opacity: 1 },
+};
+
+export const TRANSITION = { duration: 1, type: "spleen", ease: "linear" };
+
+export const aboutContainerVariant = {
+  hidden: { opacity: 1, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delayChildren: 0.3,
+      staggerChildren: 0.2,
+    },
+  },
+};
