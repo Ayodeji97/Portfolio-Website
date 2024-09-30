@@ -1,10 +1,18 @@
 import { TechnologyIcon } from "../../app.interface";
+import { motion } from "framer-motion";
 
+const item = {
+  hidden: { y: 100, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+  },
+};
 function Technology({ src, alt }: TechnologyIcon) {
   return (
-    <li className="about-skill">
+    <motion.li variants={item} className="about-skill">
       <img src={src} alt={alt} className="technology-icon" />
-    </li>
+    </motion.li>
   );
 }
 
