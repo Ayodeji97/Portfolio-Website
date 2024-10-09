@@ -1,14 +1,11 @@
-import BackgroundGradient from "./components/ui/backgorund-gradient";
-import ShinyText from "./components/ui/shiny-text";
-import { SplitText } from "./components/ui/split-text";
 import { motion } from "framer-motion";
-import Navbar from "./navbar";
 import { leftVariants, rightVariants, TRANSITION } from "./app.constants";
+import BackgroundGradient from "./components/ui/backgorund-gradient";
+import { SplitText } from "./components/ui/split-text";
 
 function Hero() {
   return (
-    <div className="hero">
-      <Navbar />
+    <div className="hero" id="home">
       <BackgroundGradient className="hero-background-gradient" />
       <div className="container">
         <div className="hero-content">
@@ -52,7 +49,7 @@ function Hero() {
             href="#contact"
             className="btn"
           >
-            <ShinyText text="Get in touch" />
+            Get in touch
           </motion.a>
         </div>
         <div className="hero-image">
