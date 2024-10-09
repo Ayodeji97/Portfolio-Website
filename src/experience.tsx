@@ -7,17 +7,14 @@ import SectionHeader from "./components/ui/section-header";
 function Experience() {
   const ref = useRef(null);
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          console.log("Intersecting");
-          document.querySelector("nav")!.style.position = "sticky";
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        console.log("Intersecting");
+        document.querySelector("nav")!.style.position = "sticky";
 
-          observer.unobserve(ref.current!);
-        }
-      },
-      { rootMargin: "100px" }
-    );
+        observer.unobserve(ref.current!);
+      }
+    });
 
     observer.observe(ref.current!);
 
