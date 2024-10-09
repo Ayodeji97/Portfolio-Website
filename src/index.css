@@ -97,12 +97,17 @@ section {
 
 /* Navbar */
 nav {
-  position: absolute;
+  position: relative;
   width: 100%;
   background-color: var(--color-black-500);
   color: var(--color-white-500);
+  z-index: 20;
+  height: 60px;
+  top: 0;
+  transition: all 0.3s;
 }
 nav .nav-container {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -129,7 +134,31 @@ nav ul li a {
 nav ul li a:hover {
   color: var(--color-accent-500);
 }
+.nav-icon {
+  display: none;
+}
+@media (max-width: 900px) {
+  nav ul {
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    background: var(--color-accent-700);
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
 
+  .nav-icon {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    color: var(--color-accent-700);
+  }
+}
 /* Hero */
 
 .hero {
@@ -137,7 +166,7 @@ nav ul li a:hover {
   background-color: var(--color-black-500);
   color: var(--color-white-500);
   text-align: center;
-  height: 100vh;
+  height: 90vh;
   scroll-snap-align: start;
   position: relative;
 }
@@ -655,6 +684,10 @@ nav ul li a:hover {
 }
 
 .contact-btn {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  gap: 10px;
   align-self: self-end;
   background-color: var(--color-accent-600);
   text-decoration: none;
@@ -672,6 +705,8 @@ nav ul li a:hover {
 .contact-btn:hover {
   background-color: var(--color-accent-700);
 }
+
+/* Loader */
 
 .contact-details {
   display: flex;
@@ -778,6 +813,43 @@ nav ul li a:hover {
   white-space: nowrap;
 }
 
+/* toast */
+.toast {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  top: 20px;
+  right: 20px;
+  background-color: rgba(44, 40, 40, 0.9);
+  color: var(--color-white-500);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  z-index: 1000;
+  font-weight: 600;
+  font-size: 1rem;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.toast-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 100%;
+  background-color: var(--color-accent-500);
+}
+.success {
+  color: #2ecc71;
+}
+.error {
+  color: #e74c3c;
+}
+.toast-icon {
+  display: flex;
+  align-items: center;
+}
 /* Media Queries */
 
 @media (max-width: 1000px) {
