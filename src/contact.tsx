@@ -1,6 +1,6 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { TfiEmail } from "react-icons/tfi";
-import { socialLinks } from "./app.constants";
+import { socialLinks, TRANSITION } from "./app.constants";
 import BackgroundGradient from "./components/ui/backgorund-gradient";
 import SectionHeader from "./components/ui/section-header";
 import SocialLink from "./components/ui/social-link";
@@ -8,9 +8,21 @@ import { TypewriterEffectSmooth } from "./components/ui/typewriter";
 import emailjs from "@emailjs/browser";
 import { envVars } from "./env-vars";
 import { BiLoaderAlt } from "react-icons/bi";
+import Toast from "./components/ui/toast";
+import { AnimatePresence, motion } from "framer-motion";
 
 function Contact() {
+  const [inView, setInView] = useState(false);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+
   const [isLoading, setIsLoading] = useState(false);
+  const [toast, setToast] = useState<{
+    message: string;
+    type: "success" | "error" | "";
+  }>({
+    message: "",
+    type: "",
+  });
   const form = useRef<HTMLFormElement>(null);
   const handleHover = (value: number, e: MouseEvent) => {
     if ((e.target as HTMLElement).closest(".social--link")) {
@@ -43,7 +55,37 @@ function Contact() {
     }
   }, []);
 
-  console.log(isLoading);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setToast({
+        message: "",
+        type: "",
+      });
+    }, 3000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [toast.message]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setInView(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    if (headingRef.current) {
+      observer.observe(headingRef.current);
+    }
+
+    return () => {
+      if (headingRef.current) {
+        observer.unobserve(headingRef.current);
+      }
+    };
+  }, []);
 
   const sendEmail = (e: FormEvent) => {
     e.preventDefault();
@@ -59,10 +101,18 @@ function Contact() {
       )
       .then(
         () => {
-          console.log("SUCCESS!");
+          setToast({
+            message: "Message sent successfully",
+            type: "success",
+          });
+          form.current?.reset();
           setIsLoading(false);
         },
         (error) => {
+          setToast({
+            message: "Message failed to send, try again",
+            type: "error",
+          });
           console.log("FAILED...", error.text);
           setIsLoading(false);
         }
@@ -73,6 +123,9 @@ function Contact() {
 
   return (
     <section className="contact-section" id="contact">
+      <AnimatePresence>
+        {toast.message && <Toast message={toast.message} type={toast.type} />}
+      </AnimatePresence>
       <BackgroundGradient className="contact-background-gradient" />
       <div className="container">
         <SectionHeader text="Get in Touch" />
@@ -97,9 +150,30 @@ function Contact() {
                 <label htmlFor="message">Message:</label>
                 <textarea id="message" name="message" required></textarea>
               </div>
-              <button type="submit" className="contact-btn">
-                {!isLoading && "Send"}
-                {isLoading && <BiLoaderAlt />}
+              <button
+                type="submit"
+                className="contact-btn"
+                disabled={isLoading}
+              >
+                {isLoading && (
+                  <motion.span
+                    initial={{
+                      rotate: 0,
+                    }}
+                    animate={{
+                      rotate: 360,
+                      transition: {
+                        duration: 1,
+                        repeat: Infinity,
+                        ease: "linear",
+                      },
+                    }}
+                  >
+                    {" "}
+                    <BiLoaderAlt />{" "}
+                  </motion.span>
+                )}{" "}
+                Send
               </button>
             </form>
           </div>
@@ -146,7 +220,22 @@ function Contact() {
             </div>
           </div>
         </div>
-        <h3 className="copyright">&copy; Daniel Ayodeji {year} </h3>
+        <motion.h3
+          ref={headingRef}
+          initial={{ opacity: 0, letterSpacing: "-10px" }}
+          animate={
+            inView
+              ? {
+                  opacity: 1,
+                  letterSpacing: "0px",
+                  transition: TRANSITION,
+                }
+              : {}
+          }
+          className="copyright"
+        >
+          &copy; Daniel Ayodeji {year}{" "}
+        </motion.h3>
       </div>
     </section>
   );
