@@ -10,7 +10,7 @@ const item = {
 };
 function Technology({ src, alt }: TechnologyIcon) {
   return (
-    <motion.li variants={item} className="about-skill">
+    <motion.li variants={item} className="about-skill" key={src}>
       <img src={src} alt={alt} className="technology-icon" />
     </motion.li>
   );
