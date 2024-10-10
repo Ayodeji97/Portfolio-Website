@@ -1,38 +1,55 @@
-import { useEffect, useState } from "react";
-import "./toast.css"; // Make sure to create a CSS file for styling
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
+import { BiCheckCircle, BiErrorCircle } from "react-icons/bi";
 
 interface ToastProps {
   message: string;
-  type: "success" | "error";
+  type?: "success" | "error" | "";
 }
 
 export default function Toast({ message, type }: ToastProps) {
-  // Close the toast after 5 seconds
-  const [show, setShow] = useState(true);
+  // const [showToast, setShowToast] = useState(message ? true : false);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShow(false);
-    }, 3000);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setShowToast(false);
+  //   }, 3000);
 
-    return () => {
-      clearTimeout(timer);
-    };
-  }, []);
+  //   return () => {
+  //     clearTimeout(timer);
+  //   };
+  // }, [message]);
 
   return (
-    <AnimatePresence>
-      {show && (
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 50 }}
-          className={`toast ${type}`}
+    message && (
+      <motion.div
+        initial={{ opacity: 0, x: 30 }}
+        animate={{
+          opacity: 1,
+          x: 0,
+          transition: { duration: 0.5, type: "spring" },
+        }}
+        exit={{
+          opacity: 0,
+          x: 30,
+          transition: { duration: 0.5, type: "spring" },
+        }}
+        className={`toast `}
+      >
+        <div className="toast-bar"></div>
+        <motion.span
+          initial={{ opacity: 0, y: -25 }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.5, type: "spring", delay: 0.5 },
+          }}
+          className={`toast-icon ${type}`}
         >
-          <p>{message}</p>
-        </motion.div>
-      )}
-    </AnimatePresence>
+          {" "}
+          {type === "success" ? <BiCheckCircle /> : <BiErrorCircle />}{" "}
+        </motion.span>
+        <p>{message}</p>
+      </motion.div>
+    )
   );
 }
