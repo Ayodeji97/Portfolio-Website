@@ -6,9 +6,11 @@ import {
 import { AnimatePresence, motion } from "framer-motion";
 import useOutsideClick from "./hooks/outside-click";
 import { useResize } from "./hooks/resize";
+import { TRANSITION } from "./app.constants";
 function Navbar() {
   const ref = useRef(null);
   const { width } = useResize();
+  const isDesktop = width > 960;
   const [click, setClick] = useState(false);
   useEffect(function () {
     let timer: number;
@@ -17,9 +19,14 @@ function Navbar() {
       const id = `${(e.target! as HTMLElement).getAttribute("href")}`;
 
       //   gsap.to(window, { duration: 2, scrollTo: `.${id}` });
-      timer = setTimeout(() => {
-        document.querySelector(`${id}`)?.scrollIntoView({ behavior: "smooth" });
-      }, 500);
+      timer = setTimeout(
+        () => {
+          document
+            .querySelector(`${id}`)
+            ?.scrollIntoView({ behavior: "smooth" });
+        },
+        isDesktop ? 0 : 500
+      );
       setClick(false);
     });
 
@@ -49,9 +56,9 @@ function Navbar() {
       <div className="nav-container" ref={ref}>
         <AnimatePresence>
           {" "}
-          {(width > 960 || click) && (
+          {(isDesktop || click) && (
             <motion.ul
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -30, ...TRANSITION }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -30 }}
               onClick={handleClick}
